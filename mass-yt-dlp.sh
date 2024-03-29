@@ -2,7 +2,7 @@
 
 # Default arguments
 default_parallel=4
-output_dir="."
+output_dir="./videos"
 
 # Function to display usage help
 usage() {
@@ -13,7 +13,7 @@ usage() {
   echo "  -n    Set the number of parallel processes (default is 4)"
   echo "  -u    Provide the URLs enclosed in quotes and separated by spaces"
   echo "  -f    Provide the path to a file containing one URL per line"
-  echo "  -o    Specify the output directory where new directories will be placed (default is current directory)"
+  echo "  -o    Specify the output directory where new directories will be placed (default is ./videos)"
   echo "  --help Show this help message and exit"
   exit 1
 }
