@@ -18,7 +18,7 @@ This was written on a linux machine but should work on a mac too.
 
 ### mass-yt-dlp.sh
 
-This script is used to download multiple youtube videos and their transcripts simultaneously. You can give it a list of URLs in the terminal or you can pass it a list of URLs in a text file.
+This script is used to download multiple youtube videos and their transcripts simultaneously. You can give it a list of URLs in the terminal or you can pass it a list of URLs in a text file. It will create a new directory titled "videos" and download the videos and their transcripts to subfolders for each video in that folder. 
 
 If you do pass them directly on the command line, please be sure to put them in quotes as some of the characters in certain youtube video URLs can cause issues if not quoted.
 
@@ -57,4 +57,50 @@ Options:
   -s    Specify the source directory to search for .srt files (default is current directory)
   -d    Specify the destination directory to store the .txt transcripts (default is ./transcripts)
   -h    Show this help message and exit
+```
+
+## Example
+
+Given a file `urls.txt` with the following contents:
+
+```plaintext
+https://www.youtube.com/watch?v=Abc123
+https://www.youtube.com/watch?v=Def456
+https://www.youtube.com/watch?v=Ghi789
+```
+
+You can run the following commands:
+
+```shell
+./mass-yt-dlp.sh -f "urls.txt"
+```
+
+This will create a directory `videos` with the following structure:
+
+```plaintext
+videos
+├── Abc123
+│   ├── Abc123.mp4
+│   └── Abc123.srt
+├── Def456
+│   ├── Def456.mp4
+│   └── Def456.srt
+└── Ghi789
+    ├── Ghi789.mp4
+    └── Ghi789.srt
+```
+
+You can then run the following command to clean up the transcripts:
+
+```shell
+./cleanup-srts.sh
+```
+
+This will create a directory `transcripts` with the following structure:
+
+```plaintext
+transcripts
+├── Abc123.txt
+├── Def456.txt
+└── Ghi789.txt
 ```
