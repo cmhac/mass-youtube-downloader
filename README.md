@@ -18,6 +18,8 @@ This was written on a linux machine but should work on a mac too.
 
 You can give it a list of URLs in the terminal or you can pass it a list of URLs in a text file.
 
+If you do pass them directly on the command line, please be sure to put them in quotes as some of the characters in certain youtube video URLs can cause issues if not quoted.
+
 ```shell
 ./mass-yt-dlp.sh -u "https://www.youtube.com/watch?v=Abc123"
 ```
