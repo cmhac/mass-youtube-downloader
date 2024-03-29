@@ -14,7 +14,7 @@ usage() {
   echo "  -u    Provide the URLs enclosed in quotes and separated by spaces"
   echo "  -f    Provide the path to a file containing one URL per line"
   echo "  -o    Specify the output directory where new directories will be placed (default is ./videos)"
-  echo "  --help Show this help message and exit"
+  echo "  -h Show this help message and exit"
   exit 1
 }
 
@@ -77,7 +77,7 @@ while :; do
         usage
       fi
       ;;
-    --help)
+    -h)
       usage
       ;;
     --)
