@@ -6,17 +6,19 @@ This script uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download multiple
 
 ## Installation
 
-Download/copy the file onto your computer and run:
+Download/copy the scripts onto your computer and run:
 
 ```shell
-chmod +x mass-yt-dlp.sh
+chmod +x <script-name>.sh
 ```
 
 This was written on a linux machine but should work on a mac too.
 
 ## Usage
 
-You can give it a list of URLs in the terminal or you can pass it a list of URLs in a text file.
+### mass-yt-dlp.sh
+
+This script is used to download multiple youtube videos and their transcripts simultaneously. You can give it a list of URLs in the terminal or you can pass it a list of URLs in a text file.
 
 If you do pass them directly on the command line, please be sure to put them in quotes as some of the characters in certain youtube video URLs can cause issues if not quoted.
 
@@ -38,4 +40,21 @@ Display a help message using:
 
 ```shell
 ./mas-yt-dlp.sh --help
+```
+
+### cleanup-srts.sh
+
+This script converts the SRT files to a more readable format that is easy to feed into a language model or service such as Google's NotebookLM (the reason I wrote this script). 
+
+It collects each srt file from all the directories in the current directory and converts them to text files with the same name as the srt file. It cleans up the transcripts so each timestamp is on a single line and the text is on the same line. 
+
+It outputs the cleaned up transcripts to a directory titled 'transcripts', or you can specify a different directory to output the cleaned up transcripts to.
+
+```plaintext
+Usage: ./cleanup-srts.sh [-s <source_directory>] [-d <destination_directory>] [-h]
+
+Options:
+  -s    Specify the source directory to search for .srt files (default is current directory)
+  -d    Specify the destination directory to store the .txt transcripts (default is ./transcripts)
+  -h    Show this help message and exit
 ```
