@@ -70,7 +70,9 @@ while :; do
           echo "Error: The file specified does not exist."
           exit 2
         fi
-        readarray -t file_urls < "$file_path"
+        while IFS= read -r line; do
+          file_urls+=("$line")
+        done < "$file_path"
         shift 2
       else
         echo "Error: -f requires a file path argument."
